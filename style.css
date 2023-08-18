@@ -1,0 +1,210 @@
+:root{
+    --White: hsl(0, 0%, 100%);
+    --PaleBlue: hsl(221, 100%, 96%); /*Box-shadow*/
+    --LightLavender: hsl(241, 100%, 89%); /*Some text*/
+    --DarkGrayBlue: hsl(224, 30%, 27%); /*Button (continue) */
+
+    --Cobalt-blue: 234, 85%, 45%; /*I deleted () for putting later the alpha value*/
+    --Light-red: 0, 100%, 67%;
+    --Orange-yellow: 39, 100%, 56%;
+    --Green-teal: 166, 100%, 37%;
+
+
+}
+
+@font-face {
+    font-family: "HankenGrotesk";
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("assets/fonts/HankenGrotesk-VariableFont_wght.ttf") format('truetype');
+}
+
+*, *::after, *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "HankenGrotesk";
+}
+
+
+.container{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 1.5rem;
+    box-shadow: .5rem 2rem 2rem 0.5rem var(--PaleBlue);
+    max-width: 39rem;
+    margin-inline: 1rem;/*Si la pantalla se va haciendo más estrecha, 
+    para que el contenedor no se pegue, dejando un márgen*/
+}
+
+
+.results{
+    background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    padding: 2rem 2.5rem;
+    border-radius: 1.5rem;
+    color: var(--LightLavender);
+    text-align: center;
+}
+
+
+.results .gap-2rem{
+    display:grid;
+    gap: 2rem;
+    justify-items: center;
+}
+
+.gap-1rem{
+    display:grid;
+    gap: 1rem;
+}
+
+.results h1{
+    font-size: 1.5rem;
+}
+
+.results .circle{
+    background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+    width: 12rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.results .circle span{
+    display:block;
+    font-weight: 800;
+    font-size: 5rem;
+    color: var(--White);
+}
+
+
+.results .great{
+    color: var(--White);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+.summary{
+    padding: 2rem;
+}
+
+
+.gap-2rem{
+    display: grid;
+    gap: 2rem;
+}
+
+
+.summary h1{
+    font-size:1.5rem;
+}
+
+.summary-scores{
+    display:grid;
+    gap: 1rem;
+}
+
+
+.flex-group{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: hsl(var(--colors), .1)
+}
+
+
+.left{
+    display:flex;
+    gap: 0.75rem;
+}
+
+
+.right p{
+    color: rgba(0,0,0, 0.3);
+    font-weight: 700;
+}
+
+
+.right span{
+    color: rgba(0,0,0,0.8);
+}
+
+/*Creating a variable called colors. This will automatically change the color of the differents boxes
+ by giving the background color and other such as the svg and the word their respective color.
+ Later, you can change everything in the root.*/
+.red{
+    --colors: var(--Light-red);
+}
+
+.yellow{
+    --colors:var(--Orange-yellow);
+}
+
+.green{
+    --colors:var(--Green-teal);
+}
+
+.blue{
+    --colors:var(--Cobalt-blue);
+}
+
+
+svg{
+    stroke: hsl(var(--colors));
+}
+
+
+.word{
+    color: hsl(var(--colors));
+    font-weight: 700;
+}
+
+
+button{
+    background-color: var(--DarkGrayBlue);
+    border-radius: 4rem;
+    border:none;
+    padding: 1rem;
+    color: var(--White);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: hsl(var(--Cobalt-blue), 1);
+}
+
+
+@media (width < 600px){
+    body{
+        display:grid;
+        height: 0vh;
+    }
+    .container{
+        display:grid;
+        grid-template-columns: 1fr;
+        margin-inline:0;
+    }
+
+    .results{
+        border-radius: 0 0 1.5rem 1.5rem;
+    }
+
+
+}
+
